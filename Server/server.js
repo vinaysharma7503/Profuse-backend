@@ -45,7 +45,7 @@ function setUpRoutes() {
 function setupError404Handler() {
     app.use((req, res) => {
         res.status(404).json({
-            msg: 'NOT FOUND',
+            message: 'NOT FOUND',
             status: 404,
             data:{}
         });
@@ -55,7 +55,7 @@ function setupError404Handler() {
 function setupErrorHandler() {
     app.use((err, req, res, next) => {
         res.status(500).json({
-            msg: err.message || "Something went wrong. Please try again later",
+            message: err.message || "Something went wrong. Please try again later",
             status: 500,
             data:{}
         });

@@ -6,6 +6,9 @@ const User = new Mongoose.Schema({
     name: { type: String},
     email:{type:String},
     password: { type: String},
+    phone: { type: String},
+    address: { type: String},
+    status: { type: Boolean,default:true},
     role:{type:String,enum:['User','Admin'],default:'User'},
     created_at: { type: Date, default: Date.now },
     updated_at:{type:Date,default:Date.now}

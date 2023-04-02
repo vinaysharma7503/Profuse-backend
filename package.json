@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "export NODE_ENV=production && nodemon index.js",
-    "dev": "export NODE_ENV=development && nodemon index.js"
+    "dev": "export NODE_ENV=development && nodemon index.js",
+    "devWin": "SET NODE_ENV=development && nodemon index.js"
   },
   "author": "Vinay Sharma",
   "license": "ISC",

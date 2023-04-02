@@ -1,10 +1,13 @@
 const express = require("express");
 const routes = express.Router();
 const AuthRouter =  require('./Web/AuthRoutes')
+const AdminAuthRouter =  require('./Admin/AuthRoutes')
+const AdminUserRouter =  require('./Admin/UserRoutes')
 
 function initilization() {
     app();
     admin();
+    web();
 }
 
 initilization();
@@ -16,7 +19,8 @@ function app() {
 }
 
 function admin() {
-    // routes.use('/admin/project',AdminProjectRouter)
+    routes.use('/admin/auth',AdminAuthRouter)
+    routes.use('/admin/user',AdminUserRouter)
 }
 
 function web(){
