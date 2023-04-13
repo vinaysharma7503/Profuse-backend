@@ -30,3 +30,33 @@ exports.getUsersList=async(req,res,next)=>{
         next(error)
     }
 }
+
+exports.changeUserStatus=async(req,res,next)=>{
+    try {
+        const data = req.body;
+        const userData = await User.findOne({_id:data?._id});
+        userData.status = !userData?.status
+        const user = await userData.save()
+        res.send({
+            status:200,
+            message:'User Status Update',
+            data:{user}
+        })
+    } catch (error) {
+        next(error)
+    }
+}
+
+exports.deleteUser=async(req,res,next)=>{
+    try {
+        const data = req.body;
+        await User.deleteOne({_id:data?._id});
+        res.send({
+            status:200,
+            message:'User Deleted Successfully',
+            data:{}
+        })
+    } catch (error) {
+        next(error)
+    }
+}

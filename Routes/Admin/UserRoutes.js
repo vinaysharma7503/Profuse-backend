@@ -8,6 +8,7 @@ function initilization() {
     postRoutes();
     putRoutes();
     patchRoutes();
+    deleteRoutes();
 }
 
 initilization();
@@ -22,6 +23,10 @@ function postRoutes() {
 function putRoutes() {
 }
 function patchRoutes() {
+    AdminRoutes.patch('/change-user-status',GlobalMiddlewares.authenticate,GlobalMiddlewares.ractifyError,UserController.changeUserStatus)
+}
+function deleteRoutes() {
+    AdminRoutes.delete('/delete-user',GlobalMiddlewares.authenticate,GlobalMiddlewares.ractifyError,UserController.deleteUser)
 }
 
 module.exports = AdminRoutes;

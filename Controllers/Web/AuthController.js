@@ -1,6 +1,7 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../../Modals/User");
+const Account = require("../../Modals/Account");
 const { env } = require("../../Environments/env");
 exports.userSignup = async (req, res, next) => {
   try {
@@ -15,6 +16,11 @@ exports.userSignup = async (req, res, next) => {
     });
 
     const user = await registration.save();
+    const accountData = new Account({
+      user_id:user?._id,
+    });
+
+    const account = await accountData.save();
     user.password = null;
 
     res.send({
