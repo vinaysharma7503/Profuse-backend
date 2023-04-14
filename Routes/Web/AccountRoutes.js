@@ -10,6 +10,7 @@ function initilization() {
     postRoutes();
     putRoutes();
     patchRoutes();
+    deleteRoutes();
 }
 
 initilization();
@@ -28,6 +29,10 @@ function putRoutes() {
 }
 function patchRoutes() {
     // AccountRoutes.patch('/update-user-profile',GlobalMiddlewares.authenticate,GlobalMiddlewares.ractifyError,AuthController.updateUserProfile)
+}
+
+function deleteRoutes(){
+    AccountRoutes.delete('/delete-invest',GlobalMiddlewares.authenticate,UserValidation.checkUserStatus(),GlobalMiddlewares.ractifyError,InvestController.deleteTransaction)
 }
 
 module.exports = AccountRoutes;

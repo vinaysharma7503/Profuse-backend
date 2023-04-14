@@ -14,6 +14,9 @@ const Transaction = new Mongoose.Schema({
         type: Mongoose.Schema.Types.ObjectId,
         ref: 'Product'
     },
+    invest_per:{
+        type:Number,
+    },
     tnx_id:{
         type:String,
     },
