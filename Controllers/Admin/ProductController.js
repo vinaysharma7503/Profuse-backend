@@ -68,9 +68,8 @@ exports.getProductList=async(req,res,next)=>{
 
 exports.deleteProduct=async(req,res,next)=>{
     try {
-        const data = req.body;
-        console.log(data);
-        await Product.deleteOne({_id:data?._id});
+        const data = req.query;
+        await Product.deleteOne({_id:data?.id});
         res.status(200).send({
             status:200,
             message:'Product Deleted Successfully',

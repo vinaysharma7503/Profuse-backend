@@ -49,8 +49,8 @@ exports.changeUserStatus=async(req,res,next)=>{
 
 exports.deleteUser=async(req,res,next)=>{
     try {
-        const data = req.body;
-        await User.deleteOne({_id:data?._id});
+        const data = req.query;
+        await User.deleteOne({_id:data?.id});
         res.send({
             status:200,
             message:'User Deleted Successfully',
